@@ -1,0 +1,532 @@
+---
+description: "Stress-tests brand, product, pricing, UX, marketing and launch decisions against five hostile market personas — angry customers, competitor fans, skeptical journalists, bad-faith commenters and internal critics — before you go public. Produces a backlash risk score, the strongest attack vector, five persona-specific attacks with quotable lines, a viral narrative, a mitigation plan and kill criteria. MANDATORY TRIGGERS: 'harakiri this', 'run a harakiri on [decision]', 'backlash test this', 'red team this decision', 'how will this get attacked', 'where could this create backlash', 'what will angry customers say about this'. STRONG TRIGGERS: 'stress test this before I ship', 'talk me out of shipping this', 'what's the worst-case reaction to this', 'attack this decision', 'will this cause backlash', 'quick harakiri', 'harakiri tl;dr'. DO NOT trigger on: general feedback requests, copy editing, factual questions, brainstorming with no concrete decision yet, or post-launch crisis management where the decision is already public. TRIGGER WHEN: the user has a specific decision that will be publicly visible — a price change, product launch, feature removal, redesign, campaign, or policy change — and wants to simulate hostile market reaction before it goes live."
+---
+
+# Harakiri Angry Customer Skill
+
+## What this skill does
+
+Harakiri simulates five hostile market personas attacking your decision before it goes public. It produces a structured red-team report: a backlash risk score, the strongest attack vector, five persona-specific attacks with quotable lines, the viral narrative, a mitigation plan, and kill criteria.
+
+This is not a balanced analysis. It is a hostile simulation. The output should be uncomfortable to read. That is the point.
+
+---
+
+## Trigger phrases
+
+Run this skill when you see any of these:
+
+- `harakiri this`
+- `run a harakiri on [decision]`
+- `red team this [decision / launch / pricing / rebrand / campaign]`
+- `how will this get attacked`
+- `what will angry customers say about this`
+- `backlash test this`
+- `stress test this before I ship`
+- `where could this create backlash`
+- `what's the worst-case reaction to this`
+- `talk me out of shipping this`
+- `attack this decision`
+
+---
+
+## Before attacking — gather context
+
+Never run an attack without enough context. Vague input produces generic output. Generic output fails the product.
+
+If the user's input is missing key details, ask only for what is missing. Maximum two or three questions. Do not interrogate.
+
+**What you need before running:**
+
+1. **The exact decision** — specific enough to attack. Pricing changes need numbers. Rebrands need the before/after. Feature removals need what is being removed and what replaces it, if anything.
+2. **The primary affected audience** — who will feel this most directly? Existing customers, new customers, free users, developers, enterprise buyers?
+3. **The sector** — SaaS, consumer app, fintech, e-commerce, media/creator, agency, marketplace?
+4. **Any known tensions** — past promises, competitor pricing, previous incidents, vocal customer segments, internal skeptics?
+5. **The intended announcement framing** — how does the company plan to present this?
+
+If the decision is clear enough to attack without asking, skip the questions and run.
+
+**For `brand_campaign` decisions, always confirm one thing before running regardless of how much context is already provided:** Is there a commercial or client relationship between the poster and any product, brand, or tool mentioned in the content? Paid promotion without disclosure is a separate and significant attack vector. It cannot be inferred from the content itself and changes the backlash profile materially.
+
+---
+
+## Decision categories
+
+Before running, classify the decision into one of these six categories. The category determines which complaint patterns to inject as few-shot calibration.
+
+| Category | Covers |
+|---|---|
+| `pricing_change` | Price increase, tier restructure, new fees, free-to-paid conversion, metered billing |
+| `feature_removal` | Removing or gating a feature, deprecating functionality, limiting free tier |
+| `product_launch` | New product, major release, significant new feature, platform expansion |
+| `brand_campaign` | New campaign, slogan, rebrand, public positioning or values statement |
+| `ui_design_decision` | Redesign, navigation overhaul, UX change that affects existing users |
+| `policy_change` | Terms of service, data policy, content rules, platform moderation changes |
+
+If the decision spans categories, choose the one that carries the most reputational risk.
+
+---
+
+## Few-shot calibration — required before each persona
+
+### Token-efficiency rule
+
+Classify the decision category first. Then read only the matching pattern file. Do not load all pattern files. Do not paste the full pattern file into the report. Use 2–3 patterns for calibration — no more.
+
+Pattern files live at:
+```
+skill/references/patterns/pricing-change.md
+skill/references/patterns/feature-removal.md
+skill/references/patterns/product-launch.md
+skill/references/patterns/brand-campaign.md
+skill/references/patterns/ui-design-decision.md
+skill/references/patterns/policy-change.md
+```
+
+### Calibration procedure
+
+**If the matching pattern file exists:** read it, select 2–3 patterns relevant to this specific decision, and use them to calibrate tone before each persona attack. Do not reproduce the synthetic example phrases verbatim — paraphrase the complaint angle and apply it to the decision at hand.
+
+**If the matching pattern file does not exist:** infer plausible complaint angles from the decision category based on what you know about how that type of decision typically lands in public. Label them clearly as inferred, not sourced.
+
+All pattern examples are synthetic calibration aids. Never claim them to be real customer complaints.
+
+**Injection format when using the pattern file:**
+
+```
+Synthetic calibration patterns for [category] decisions (do not reproduce verbatim):
+
+Pattern: [pattern name]
+[paraphrase of the complaint angle applied to this decision]
+
+Pattern: [pattern name]
+[paraphrase of the complaint angle applied to this decision]
+
+Generate specific critique for the decision above using these angles as tone reference only.
+```
+
+**Injection format when inferring (no pattern file available):**
+
+```
+Inferred complaint angles for [category] decisions (synthetic, not sourced):
+
+Pattern: [inferred pattern name]
+[description of likely complaint angle for this decision type]
+
+Pattern: [inferred pattern name]
+[description of likely complaint angle]
+
+Use these angles to inform tone. All output is simulated.
+```
+
+Place the injection block before each persona's instructions, not after. Use 2–3 patterns maximum.
+
+---
+
+## The five hostile personas
+
+Each persona attacks from a distinct angle. Keep their voices separate. Do not let them agree with each other. Do not soften their language.
+
+---
+
+### 1. Angry Existing Customer
+
+**Core emotion:** Betrayal. They trusted the company. This decision makes them feel used.
+
+**Who they are:** A paying user who has been with the product long enough to feel ownership. They reference what they were promised. They frame this as a violation of the relationship, not a business decision.
+
+**Attack style:** Personal, emotional, specific. Long Reddit comment energy. They quote the original pricing page, the founder tweet, the onboarding email. They name what they are losing.
+
+**Platform:** Reddit, X, app store reviews. They do not move on quietly.
+
+**Calibrate toward:** "They got us dependent, then changed the deal." / "This is not what I signed up for." / "I have been a paying customer for three years. This is how they treat loyal users."
+
+**Direction rule:** This persona is always a customer, follower, or client of whoever is making the decision — the person or brand posting, launching, or changing something. They are never a customer of a third party mentioned in the decision. If the decision attacks or names a competitor, the Angry Existing Customer is someone who trusted the decision-maker's judgment and now feels let down by this content or move — not someone who uses the competitor being attacked.
+
+---
+
+### 2. Competitor Loyalist
+
+**Core emotion:** Validation. They have been waiting for proof they were right to switch, or right to stay away.
+
+**Who they are:** A former customer who left, or a prospect who was evaluating and just made their decision. They do not argue with the company — they point at it.
+
+**Attack style:** Comparative, short, slightly gloating. They link to the competitor. They do not need much to make the point. One sentence is enough.
+
+**Platform:** X, LinkedIn. Confident, brief, often retweeted.
+
+**Calibrate toward:** "This is why I moved to [competitor] last year." / "Competitor X does this for half the price and does not pull this." / "They just handed the market to [rival]."
+
+---
+
+### 3. Skeptical Journalist / Newsletter Writer
+
+**Core emotion:** Narrative hunger. This decision is not isolated — it is evidence of a pattern, a value mismatch, or a company revealing its true priorities.
+
+**Who they are:** A writer, blogger or newsletter author looking for the story behind the announcement. They are not angry personally. They are professionally interested in what this tells them about the company.
+
+**Attack style:** Pattern-framing, contextual, calm but damning. They quote the company's own previous statements. They connect this to industry trends. They write headlines.
+
+**Platform:** Newsletter, LinkedIn, Hacker News. Longer form. Gets cited and referenced by others.
+
+**Calibrate toward:** "This is part of a larger pattern of SaaS companies extracting value once retention is established." / "The stated values say customer-first. This decision says margin-first." / "A case study in how to lose customer trust one announcement at a time."
+
+---
+
+### 4. Bad-Faith Commenter
+
+**Core emotion:** Dunking. They are not a customer. They are an audience member who found a new episode.
+
+**Who they are:** They perform outrage for their followers. They oversimplify, distort framing, and strip nuance to find the most cuttable version of the story. They do not argue — they mock.
+
+**Attack style:** Short, punchy, meme-ready. One or two sentences maximum. They exaggerate the implications, reframe the decision in the worst possible light, and find the irony or contradiction that makes it screenshot-worthy. They are performing, not analyzing.
+
+**Platform:** X. Screenshot-able. Designed to be replied to and retweeted.
+
+**Constraints:** This persona may oversimplify, distort framing, and dunk. They may not invent specific false facts about real named individuals, make accusations of illegal conduct, or fabricate private information. Distorting tone and implications is fair. Inventing facts is not.
+
+**Calibrate toward:** "Another startup speedrunning enshittification." / "They really thought nobody would notice." / "Screenshot this. They will walk it back in 72 hours." / "Friendly reminder that 'we're doing this for you' means 'we're doing this to you.'"
+
+---
+
+### 5. Internal Skeptic / Ex-Employee
+
+**Core emotion:** Weary hypocrisy exposure. They know what was said in the internal meetings. They know what data was ignored.
+
+**Who they are:** A current employee who thinks leadership is wrong, or a former employee who saw this coming and is not surprised. They do not sound angry — they sound tired. And that is more damaging.
+
+**Attack style:** Inside knowledge, contradiction-surfacing, calm resignation. They expose the gap between public messaging and internal reality.
+
+**Platform:** LinkedIn, Glassdoor, Blind, occasionally anonymous X. Often picked up by journalists as background sources.
+
+**Calibrate toward:** "People inside knew this would land badly. The data was there. The decision was made anyway." / "The customer-first language is for the press release. The internal language is different." / "This was discussed for months. The people who pushed back are no longer at the company."
+
+**Adaptation rule:** This persona assumes an internal corporate decision-making process exists. If the decision comes from a single person, a small team, or a solo social media post with no obvious review chain, adapt this persona to: a peer or industry professional who sees through the tactic or claim. Drop the "people inside knew" framing. Use instead: "someone who understands this space well enough to explain precisely why this does not work, and why the people behind it probably knew it before they posted."
+
+---
+
+## Output format
+
+Produce the report in this exact structure. Do not skip sections. Do not merge sections. Use the exact headers.
+
+---
+
+```
+HARAKIRI REPORT
+[one-sentence description of the decision being stress-tested]
+
+─────────────────────────────────────────────────────────
+
+VERDICT
+[Ship it · Ship with changes · Rewrite before launch · Do not ship as-is]
+
+BACKLASH RISK SCORE
+[X.X / 10] — [Low risk · Manageable risk · Serious backlash risk · Public narrative risk]
+
+  Higher score = higher backlash risk.
+
+  1–3   Low risk
+  4–6   Manageable risk
+  7–8   Serious backlash risk
+  9–10  Public narrative risk
+
+─────────────────────────────────────────────────────────
+
+STRONGEST ATTACK VECTOR
+[One paragraph. The single most dangerous framing this decision will face. Name the specific narrative, not just the topic area.]
+
+─────────────────────────────────────────────────────────
+
+PERSONA ATTACKS
+
+[1] ANGRY EXISTING CUSTOMER
+[one-line persona descriptor]
+
+  "[Most dangerous quote — one sentence, quotable, shareable]"
+
+[Main attack — 3–5 sentences in this persona's voice. Specific to this decision. Emotional and direct.]
+
+Why this resonates: [who amplifies this and why]
+What reduces the anger: [one or two concrete actions]
+
+───
+
+[2] COMPETITOR LOYALIST
+[one-line persona descriptor]
+
+  "[Most dangerous quote]"
+
+[Main attack]
+
+Why this resonates:
+What reduces the anger:
+
+───
+
+[3] SKEPTICAL JOURNALIST
+[one-line persona descriptor]
+
+  "[Most dangerous quote]"
+
+[Main attack]
+
+Why this resonates:
+What reduces the anger:
+
+───
+
+[4] BAD-FAITH COMMENTER
+[one-line persona descriptor]
+
+  "[Most dangerous quote]"
+
+[Main attack — short, punchy, platform-native]
+
+Why this resonates:
+What reduces the anger:
+
+───
+
+[5] INTERNAL SKEPTIC
+[one-line persona descriptor]
+
+  "[Most dangerous quote]"
+
+[Main attack]
+
+Why this resonates:
+What reduces the anger:
+
+─────────────────────────────────────────────────────────
+
+VIRAL NARRATIVE
+[One sentence that could spread. The tweet, the newsletter headline, the Reddit thread title. Not a synthesis of all attacks — the one framing that could dominate the public conversation.]
+
+Likely platforms: [Reddit · X · HN · LinkedIn · Glassdoor · App Store]
+
+─────────────────────────────────────────────────────────
+
+WHO GETS ANGRY FIRST
+[The specific audience segment that leads the backlash. Not "customers" — be precise: "long-tenured paying customers on the legacy tier" or "developers who built workflows on the free API".]
+
+─────────────────────────────────────────────────────────
+
+WHAT YOU ARE UNDERESTIMATING
+[The risk the team probably has not named yet. Not a restatement of the attacks — the hidden assumption or blind spot that makes this more dangerous than it appears.]
+
+─────────────────────────────────────────────────────────
+
+MITIGATION PLAN
+
+[3–5 specific actions. Each one directly addresses a risk identified in the attacks. Format: action → why it works.]
+
+– [Action]: [Why this reduces the risk]
+– [Action]: [Why this reduces the risk]
+– [Action]: [Why this reduces the risk]
+
+Safer framing:
+"[One sentence rewrite of the announcement that reduces the strongest attack vector]"
+
+─────────────────────────────────────────────────────────
+
+KILL CRITERIA
+
+If any of the following happen within [timeframe], pause and reassess:
+
+– [Specific metric or signal] → [Recommended response]
+– [Specific metric or signal] → [Recommended response]
+– [Specific metric or signal] → [Recommended response]
+
+─────────────────────────────────────────────────────────
+
+CONFIDENCE LEVEL
+[Low · Medium · High]
+
+[One sentence — usually driven by how specific the input was and how well-documented the backlash patterns are for this decision type.]
+
+─────────────────────────────────────────────────────────
+
+This report is a simulated red-team exercise. It reflects plausible criticism patterns, not guaranteed public reaction. Do not treat it as legal, PR, financial or crisis-management advice.
+```
+
+---
+
+## Short mode
+
+If the user asks for `quick harakiri`, `short version`, or `harakiri tl;dr`, produce a condensed report with only these sections:
+
+```
+HARAKIRI REPORT (SHORT)
+[one-sentence decision description]
+
+VERDICT
+[Ship it · Ship with changes · Rewrite before launch · Do not ship as-is]
+
+BACKLASH RISK SCORE
+[X.X / 10] — [risk bracket]
+
+STRONGEST ATTACK VECTOR
+[Two to three sentences. The single most dangerous framing.]
+
+PERSONA ATTACKS
+[Three personas only — pick the three most relevant to this specific decision.
+Each: one-line descriptor, one dangerous quote, two to three sentences of attack.]
+
+TOP MITIGATION
+[The single most important action before shipping. One sentence.]
+
+KILL CRITERIA
+[One or two signals. Specific metrics, specific responses.]
+
+[Disclaimer]
+```
+
+Short mode is for decisions that need a quick read before a meeting or a fast go/no-go check. It does not replace the full report for high-stakes decisions. If the score comes back 7 or above in short mode, recommend running the full report.
+
+---
+
+## Tone rules
+
+### Good output sounds like this
+
+- "This will not survive a Reddit thread."
+- "Your angriest customer has already written the post. They are waiting for the announcement."
+- "The market found the weak spot. It is the framing, not the decision."
+- "This is defensible — but only if you change the announcement before it goes live."
+- "The Bad-Faith Commenter does not need to be right. They need to be retweetable."
+
+### Bad output sounds like this
+
+- "Here are some potential concerns to consider."
+- "Overall, this seems like a reasonable approach with some risks."
+- "Users may have mixed feelings about this change."
+- "You might want to think carefully about how this will land."
+- "It is important to communicate clearly with your customers."
+
+The skill fails if the user reads the report and thinks "that was not so bad." The report should be uncomfortable. If it is not uncomfortable, the output is wrong.
+
+Do not hedge inside the persona voices. The Angry Customer does not say "I might feel somewhat frustrated." The Bad-Faith Commenter does not qualify. Give them their full voice.
+
+Hedge only in the Confidence Level section and the disclaimer. Everywhere else, commit.
+
+### Perception framing rule
+
+Frame risks as credibility and market perception problems, not moral judgments about the decision-maker. Use "this reads as..." and "critics will frame this as..." — not "this is wrong" or "this is harmful." The skill simulates what hostile audiences will actually say, not what is ethically correct. Apply this especially to creative choices (meme selection, imagery, tone) where the real risk is "this looks lazy or tone-deaf for a professional account" rather than "this is morally objectionable." Exception: if the genuine likely market reaction is moral outrage — hate speech, discrimination, exploitation — name it directly.
+
+---
+
+## Ethics constraints
+
+**Never:**
+- Attack a person's protected characteristics (race, gender, religion, nationality, disability)
+- Invent specific private facts about real named individuals
+- Generate threats, calls to harassment, or content designed to coordinate attacks on a third party
+- Make unsupported factual accusations about named companies or specific real people
+- Produce content a user could deploy as a smear campaign against a competitor
+
+**Always:**
+- Separate simulated persona opinion from evidence-based claims
+- Use hedged framing in the confidence level: "could be framed as", "this may resonate with", "plausible narrative"
+- Include the disclaimer in every report
+- Frame attacks against the decision, not against the decision-maker personally
+- Include a mitigation plan alongside every attack — the point is to help, not just wound
+
+The product is brutal. It is not cruel. Brutal is honest and useful. Cruel is personal and harmful.
+
+---
+
+## Final check before delivering
+
+- Is this still a Harakiri report? Hostile, specific, useful — not polite feedback.
+- Does each persona have a genuinely distinct voice? Could you tell them apart without the headers?
+- Is the most dangerous quote actually dangerous? Would a founder wince reading it?
+- Is the viral narrative the real one — the version that could actually spread, not the tamest version?
+- Is the mitigation plan specific enough to act on? Actions, not suggestions.
+- Is the confidence level included? Is the disclaimer present?
+- Did you avoid generic AI hedging in the persona voices?
+
+---
+
+## Embedded reference example
+
+Output quality reference — a compressed Harakiri report for a SaaS pricing increase.
+Shows structure and tone. Full examples with complete persona text are in `examples/`.
+
+```
+HARAKIRI REPORT
+SaaS pricing from $29 to $49/month, no grandfather period, framed as "reflecting our value."
+
+─────────────────────────────────────────────────────────
+
+VERDICT
+Rewrite before launch
+
+BACKLASH RISK SCORE
+8.2 / 10 — Serious backlash risk   (higher score = higher risk)
+
+─────────────────────────────────────────────────────────
+
+STRONGEST ATTACK VECTOR
+Second increase in 18 months with no major feature shipped in between.
+"Reflecting our value" is the line critics will screenshot. Competitor at $35 is
+the number that appears in every thread.
+
+─────────────────────────────────────────────────────────
+
+PERSONA ATTACKS
+
+[1] ANGRY EXISTING CUSTOMER — Long-tenure user who stayed through the last increase.
+  "I stayed through $29. Now $49 with no warning. How many times before I'm a line item?"
+Personal betrayal framing. Quotes unfulfilled promises. Does not move on quietly.
+
+[2] COMPETITOR LOYALIST — Switched to Competitor X three months ago.
+  "Moved to Competitor X at $35/month. It was the right call. You are welcome."
+Concrete price delta. Gives fence-sitters a destination, not just a grievance.
+
+[3] SKEPTICAL JOURNALIST — Newsletter covering SaaS pricing practices.
+  "The phrase 'reflecting the value we deliver' is doing a lot of work in an
+   announcement that delivers nothing new to existing customers."
+Pattern-framing. Calm, damning. Gets cited by others. Compares this to industry trend.
+
+[4] BAD-FAITH COMMENTER — 12,000 followers. Has not used the product.
+  "$19 → $29 → $49 in 18 months. Screenshot this. They'll walk it back by Friday."
+Three numbers. One line. Spreads without effort. Designed to be retweeted.
+
+[5] INTERNAL SKEPTIC — Former product lead who was in the room.
+  "The retention data from the last increase was presented to leadership.
+   This decision was made anyway."
+Inside knowledge. Sounds tired, not angry. The most credible attacker.
+
+─────────────────────────────────────────────────────────
+
+VIRAL NARRATIVE
+"They raised prices on loyal users twice in 18 months and called it investing in value."
+Likely platforms: Reddit, X, HN
+
+─────────────────────────────────────────────────────────
+
+MITIGATION PLAN
+– Grandfather existing customers for 6 months: removes the loyalty penalty narrative.
+– Remove "reflecting the value we deliver" from copy: it is the screenshot waiting to happen.
+– Acknowledge the previous increase directly: pretending it did not happen reads as dishonest.
+
+Safer framing: "Existing customers keep their current rate until [date]. This increase funds
+[specific thing]. Here is how to manage your plan if this does not work for you."
+
+─────────────────────────────────────────────────────────
+
+KILL CRITERIA
+– Cancellation requests exceed 8% in 72h → pause rollout, issue founder statement
+– Reddit thread with competitor comparison reaches 200 upvotes → respond directly, do not go silent
+
+─────────────────────────────────────────────────────────
+
+CONFIDENCE LEVEL
+High — compounding SaaS price increases without grandfather periods are among the
+most documented backlash patterns.
+
+─────────────────────────────────────────────────────────
+
+This report is a simulated red-team exercise. It reflects plausible criticism patterns,
+not guaranteed public reaction. Do not treat it as legal, PR, financial or crisis-management advice.
+```
